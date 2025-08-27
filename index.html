@@ -22,16 +22,17 @@
         <p class="text-slate-600 mt-2">Please sign in to continue</p>
       </section>
 
+      <!-- JS-free redirect: form posts to /admin.html -->
       <section class="mx-auto max-w-md bg-white p-8 rounded-xl shadow-sm border border-slate-200">
-        <form id="loginForm" class="grid gap-5">
+        <form action="/admin.html" method="get" class="grid gap-5">
           <label class="grid gap-1 text-sm">
             <span class="font-medium text-slate-800">Email</span>
-            <input type="email" class="border border-slate-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-teal-600 focus:border-teal-600 placeholder:text-slate-400" placeholder="you@example.com" required />
+            <input name="email" type="email" class="border border-slate-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-teal-600 focus:border-teal-600 placeholder:text-slate-400" placeholder="you@example.com" required />
           </label>
 
           <label class="grid gap-1 text-sm">
             <span class="font-medium text-slate-800">Password</span>
-            <input type="password" class="border border-slate-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-teal-600 focus:border-teal-600 placeholder:text-slate-400" placeholder="••••••••" required />
+            <input name="password" type="password" class="border border-slate-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-teal-600 focus:border-teal-600 placeholder:text-slate-400" placeholder="••••••••" required />
           </label>
 
           <div class="flex items-center justify-between text-sm">
@@ -45,16 +46,10 @@
           <button type="submit" class="rounded-md bg-teal-600 text-white px-4 py-2.5 hover:bg-teal-700">Sign In</button>
         </form>
 
-        <p class="mt-6 text-xs text-slate-500 text-center">Demo: this login redirects to the Admin page.</p>
+        <noscript>
+          <p class="mt-6 text-xs text-slate-500">JavaScript is disabled. You can still <a href="/admin.html" class="text-teal-700 hover:underline">continue to Admin</a>.</p>
+        </noscript>
       </section>
     </main>
-
-    <script>
-      // Mock login: redirect to admin.html
-      document.getElementById('loginForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        window.location.href = '/admin.html';
-      });
-    </script>
   </body>
 </html>
