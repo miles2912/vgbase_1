@@ -1,109 +1,139 @@
-<main class="w-full max-w-5xl mx-auto px-4 py-10">
-  <!-- Title -->
-  <section class="mb-8">
-    <h1 class="text-3xl md:text-4xl font-bold text-slate-800 text-center">
-      VGBase <span class="text-teal-700">Version 2.0</span>
-    </h1>
-    <p class="text-center text-slate-600 mt-2">
-      Client lookup &amp; conflict resolution check
-    </p>
-  </section>
-
-  <!-- Form Card -->
-  <section class="bg-white p-8 rounded-xl shadow-sm border border-slate-200">
-    <h2 class="text-lg font-semibold text-slate-800 mb-6">Contact / Case Details</h2>
-
-    <form class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      <!-- Contact + inline search -->
-      <div class="grid gap-1 text-sm">
-        <span class="font-medium text-slate-800">Contact</span>
-        <div class="flex gap-2 items-center">
-          <input type="text" class="flex-1 border border-slate-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-teal-600 focus:border-teal-600 placeholder:text-slate-400" placeholder="Jane Doe" />
-          <button type="button" class="rounded-md border border-teal-600 text-teal-700 px-2.5 py-2 hover:bg-teal-50 flex items-center justify-center" title="Search on this data" aria-label="Search on contact">
-            <!-- checkmark icon -->
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
-              <path fill-rule="evenodd" d="M16.704 5.29a1 1 0 0 1 .006 1.414l-7.25 7.3a1 1 0 0 1-1.424-.01L3.29 9.94a1 1 0 1 1 1.42-1.41l3.02 3.04 6.54-6.58a1 1 0 0 1 1.434 0Z" clip-rule="evenodd" />
-            </svg>
-          </button>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>VGBase 2.0</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-slate-50 text-slate-900 antialiased min-h-screen">
+    <!-- Top bar -->
+    <header class="border-b border-slate-200 bg-white/70 backdrop-blur">
+      <div class="mx-auto max-w-5xl px-4 h-14 flex items-center justify-between">
+        <div class="text-sm font-semibold tracking-tight text-slate-800">
+          VGBase <span class="text-teal-700">2.0</span>
+        </div>
+        <div class="relative group text-sm text-slate-700">
+          <div class="flex flex-col items-center cursor-pointer">
+            <div class="w-9 h-9 rounded-full bg-teal-700 text-white flex items-center justify-center font-bold">D</div>
+            <span class="mt-1 text-xs text-slate-600">Don</span>
+          </div>
+          <!-- Hover dropdown -->
+          <div class="absolute right-0 mt-2 hidden group-hover:block bg-white border border-slate-200 rounded-md shadow px-3 py-1.5">
+            <button class="text-red-600 hover:text-red-700">Log out</button>
+          </div>
         </div>
       </div>
+    </header>
 
-      <!-- Address -->
-      <label class="grid gap-1 text-sm">
-        <span class="font-medium text-slate-800">Address</span>
-        <input type="text" class="border border-slate-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-teal-600 focus:border-teal-600 placeholder:text-slate-400" placeholder="123 Main St, Springfield" />
-      </label>
+    <main class="w-full max-w-5xl mx-auto px-4 py-10">
+      <!-- Title -->
+      <section class="mb-8">
+        <h1 class="text-3xl md:text-4xl font-bold text-slate-800 text-center">
+          VGBase <span class="text-teal-700">Version 2.0</span>
+        </h1>
+        <p class="text-center text-slate-600 mt-2">
+          Client lookup &amp; conflict resolution check
+        </p>
+      </section>
 
-      <!-- Phone + inline search -->
-      <div class="grid gap-1 text-sm">
-        <span class="font-medium text-slate-800">Phone Number</span>
-        <div class="flex gap-2 items-center">
-          <input type="tel" class="flex-1 border border-slate-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-teal-600 focus:border-teal-600 placeholder:text-slate-400" placeholder="(555) 123-4567" />
-          <button type="button" class="rounded-md border border-teal-600 text-teal-700 px-2.5 py-2 hover:bg-teal-50 flex items-center justify-center" title="Search on this data" aria-label="Search on phone">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
-              <path fill-rule="evenodd" d="M16.704 5.29a1 1 0 0 1 .006 1.414l-7.25 7.3a1 1 0 0 1-1.424-.01L3.29 9.94a1 1 0 1 1 1.42-1.41l3.02 3.04 6.54-6.58a1 1 0 0 1 1.434 0Z" clip-rule="evenodd" />
-            </svg>
-          </button>
-        </div>
-      </div>
+      <!-- Form Card -->
+      <section class="bg-white p-8 rounded-xl shadow-sm border border-slate-200">
+        <h2 class="text-lg font-semibold text-slate-800 mb-6">Contact / Case Details</h2>
 
-      <!-- Lawyer Case Number -->
-      <label class="grid gap-1 text-sm">
-        <span class="font-medium text-slate-800">Lawyer Case Number</span>
-        <input type="text" class="border border-slate-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-teal-600 focus:border-teal-600 placeholder:text-slate-400" placeholder="LCN-00123" />
-      </label>
+        <form class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- Contact + inline search -->
+          <div class="grid gap-1 text-sm">
+            <span class="font-medium text-slate-800">Contact</span>
+            <div class="flex gap-2 items-center">
+              <input type="text" class="flex-1 border border-slate-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-teal-600 focus:border-teal-600 placeholder:text-slate-400" placeholder="Jane Doe" />
+              <button type="button" class="rounded-md border border-teal-600 text-teal-700 px-2.5 py-2 hover:bg-teal-50 flex items-center justify-center" title="Search on this data" aria-label="Search on contact">
+                <!-- checkmark icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                  <path fill-rule="evenodd" d="M16.704 5.29a1 1 0 0 1 .006 1.414l-7.25 7.3a1 1 0 0 1-1.424-.01L3.29 9.94a1 1 0 1 1 1.42-1.41l3.02 3.04 6.54-6.58a1 1 0 0 1 1.434 0Z" clip-rule="evenodd" />
+                </svg>
+              </button>
+            </div>
+          </div>
 
-      <!-- Email -->
-      <label class="grid gap-1 text-sm">
-        <span class="font-medium text-slate-800">Email</span>
-        <input type="email" class="border border-slate-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-teal-600 focus:border-teal-600 placeholder:text-slate-400" placeholder="jane.doe@example.com" />
-      </label>
+          <!-- Address -->
+          <label class="grid gap-1 text-sm">
+            <span class="font-medium text-slate-800">Address</span>
+            <input type="text" class="border border-slate-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-teal-600 focus:border-teal-600 placeholder:text-slate-400" placeholder="123 Main St, Springfield" />
+          </label>
 
-      <!-- DOL Range (single row under Phone) + inline search -->
-      <div class="grid gap-1 text-sm">
-        <span class="font-medium text-slate-800">DOL (Date Range)</span>
-        <div class="flex items-center gap-2">
-          <input type="date" class="w-40 border border-slate-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-teal-600 focus:border-teal-600" aria-label="DOL From" />
-          <span class="text-slate-500">to</span>
-          <input type="date" class="w-40 border border-slate-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-teal-600 focus:border-teal-600" aria-label="DOL To" />
-          <button type="button" class="rounded-md border border-teal-600 text-teal-700 px-2.5 py-2 hover:bg-teal-50 flex items-center justify-center" title="Search on this date range" aria-label="Search on DOL range">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
-              <path fill-rule="evenodd" d="M16.704 5.29a1 1 0 0 1 .006 1.414l-7.25 7.3a1 1 0 0 1-1.424-.01L3.29 9.94a1 1 0 1 1 1.42-1.41l3.02 3.04 6.54-6.58a1 1 0 0 1 1.434 0Z" clip-rule="evenodd" />
-            </svg>
-          </button>
-        </div>
-      </div>
+          <!-- Phone + inline search -->
+          <div class="grid gap-1 text-sm">
+            <span class="font-medium text-slate-800">Phone Number</span>
+            <div class="flex gap-2 items-center">
+              <input type="tel" class="flex-1 border border-slate-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-teal-600 focus:border-teal-600 placeholder:text-slate-400" placeholder="(555) 123-4567" />
+              <button type="button" class="rounded-md border border-teal-600 text-teal-700 px-2.5 py-2 hover:bg-teal-50 flex items-center justify-center" title="Search on this data" aria-label="Search on phone">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                  <path fill-rule="evenodd" d="M16.704 5.29a1 1 0 0 1 .006 1.414l-7.25 7.3a1 1 0 0 1-1.424-.01L3.29 9.94a1 1 0 1 1 1.42-1.41l3.02 3.04 6.54-6.58a1 1 0 0 1 1.434 0Z" clip-rule="evenodd" />
+                </svg>
+              </button>
+            </div>
+          </div>
 
-      <!-- Incident Type -->
-      <label class="grid gap-1 text-sm">
-        <span class="font-medium text-slate-800">Incident Type</span>
-        <select class="border border-slate-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-teal-600 focus:border-teal-600">
-          <option value="">Select…</option>
-          <option>Theft</option>
-          <option>Accident</option>
-          <option>Civil</option>
-          <option>Criminal</option>
-          <option>Other</option>
-        </select>
-      </label>
+          <!-- Lawyer Case Number -->
+          <label class="grid gap-1 text-sm">
+            <span class="font-medium text-slate-800">Lawyer Case Number</span>
+            <input type="text" class="border border-slate-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-teal-600 focus:border-teal-600 placeholder:text-slate-400" placeholder="LCN-00123" />
+          </label>
 
-      <!-- Job Folder -->
-      <label class="grid gap-1 text-sm">
-        <span class="font-medium text-slate-800">Job Folder</span>
-        <input type="text" class="border border-slate-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-teal-600 focus:border-teal-600 placeholder:text-slate-400" placeholder="Folder-001" />
-      </label>
+          <!-- Email -->
+          <label class="grid gap-1 text-sm">
+            <span class="font-medium text-slate-800">Email</span>
+            <input type="email" class="border border-slate-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-teal-600 focus:border-teal-600 placeholder:text-slate-400" placeholder="jane.doe@example.com" />
+          </label>
 
-      <!-- Insurance Company -->
-      <label class="grid gap-1 text-sm">
-        <span class="font-medium text-slate-800">Insurance Company</span>
-        <input type="text" class="border border-slate-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-teal-600 focus:border-teal-600 placeholder:text-slate-400" placeholder="Acme Mutual" />
-      </label>
+          <!-- DOL Range (single row under Phone) + inline search -->
+          <div class="grid gap-1 text-sm">
+            <span class="font-medium text-slate-800">DOL (Date Range)</span>
+            <div class="flex items-center gap-2">
+              <input type="date" class="w-40 border border-slate-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-teal-600 focus:border-teal-600" aria-label="DOL From" />
+              <span class="text-slate-500">to</span>
+              <input type="date" class="w-40 border border-slate-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-teal-600 focus:border-teal-600" aria-label="DOL To" />
+              <button type="button" class="rounded-md border border-teal-600 text-teal-700 px-2.5 py-2 hover:bg-teal-50 flex items-center justify-center" title="Search on this date range" aria-label="Search on DOL range">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                  <path fill-rule="evenodd" d="M16.704 5.29a1 1 0 0 1 .006 1.414l-7.25 7.3a1 1 0 0 1-1.424-.01L3.29 9.94a1 1 0 1 1 1.42-1.41l3.02 3.04 6.54-6.58a1 1 0 0 1 1.434 0Z" clip-rule="evenodd" />
+                </svg>
+              </button>
+            </div>
+          </div>
 
-      <!-- Insurance Company Claim Number -->
-      <label class="grid gap-1 text-sm">
-        <span class="font-medium text-slate-800">Insurance Company Claim Number</span>
-        <input type="text" class="border border-slate-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-teal-600 focus:border-teal-600 placeholder:text-slate-400" placeholder="CLM-123456" />
-      </label>
-    </form>
-  </section>
-</main>
+          <!-- Incident Type -->
+          <label class="grid gap-1 text-sm">
+            <span class="font-medium text-slate-800">Incident Type</span>
+            <select class="border border-slate-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-teal-600 focus:border-teal-600">
+              <option value="">Select…</option>
+              <option>Theft</option>
+              <option>Accident</option>
+              <option>Civil</option>
+              <option>Criminal</option>
+              <option>Other</option>
+            </select>
+          </label>
+
+          <!-- Job Folder -->
+          <label class="grid gap-1 text-sm">
+            <span class="font-medium text-slate-800">Job Folder</span>
+            <input type="text" class="border border-slate-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-teal-600 focus:border-teal-600 placeholder:text-slate-400" placeholder="Folder-001" />
+          </label>
+
+          <!-- Insurance Company -->
+          <label class="grid gap-1 text-sm">
+            <span class="font-medium text-slate-800">Insurance Company</span>
+            <input type="text" class="border border-slate-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-teal-600 focus:border-teal-600 placeholder:text-slate-400" placeholder="Acme Mutual" />
+          </label>
+
+          <!-- Insurance Company Claim Number -->
+          <label class="grid gap-1 text-sm">
+            <span class="font-medium text-slate-800">Insurance Company Claim Number</span>
+            <input type="text" class="border border-slate-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-teal-600 focus:border-teal-600 placeholder:text-slate-400" placeholder="CLM-123456" />
+          </label>
+        </form>
+      </section>
+    </main>
+  </body>
+</html>
