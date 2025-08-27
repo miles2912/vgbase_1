@@ -1,1 +1,218 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>VGBase 2.0</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-slate-50 text-slate-900 antialiased min-h-screen">
+    <!-- Top bar -->
+    <header class="border-b border-slate-200 bg-white/70 backdrop-blur">
+      <div class="mx-auto max-w-5xl px-4 h-14 flex items-center justify-between">
+        <div class="text-sm font-semibold tracking-tight text-slate-800">
+          VGBase <span class="text-teal-700">2.0</span>
+        </div>
+
+        <!-- Profile / actions -->
+        <div class="relative text-sm text-slate-700">
+          <button id="profileBtn" class="flex items-center gap-2 cursor-pointer select-none" aria-haspopup="menu" aria-expanded="false">
+            <div class="w-9 h-9 rounded-full bg-teal-700 text-white flex items-center justify-center font-bold">D</div>
+            <span class="hidden sm:inline text-xs text-slate-600">Don</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-slate-500" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+              <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.172l3.71-3.94a.75.75 0 011.08 1.04l-4.24 4.5a.75.75 0 01-1.08 0l-4.24-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+            </svg>
+          </button>
+
+          <!-- Dropdown menu -->
+          <div id="profileMenu" class="absolute right-0 mt-2 w-56 bg-white border border-slate-200 rounded-md shadow-lg p-2 hidden" role="menu" aria-labelledby="profileBtn">
+            <!-- role badge -->
+            <div class="flex items-center justify-between px-2 py-1.5">
+              <span class="text-xs font-medium text-slate-600">Signed in as</span>
+              <span class="inline-flex items-center gap-1 rounded-full bg-teal-50 text-teal-700 border border-teal-200 px-2 py-0.5 text-xs">
+                <span class="w-1.5 h-1.5 rounded-full bg-teal-500"></span> Admin
+              </span>
+            </div>
+            <div class="my-2 h-px bg-slate-100"></div>
+            <!-- links (dummy placeholders) -->
+            <a href="#" role="menuitem" class="flex items-center gap-2 px-2 py-2 rounded-md hover:bg-slate-50">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-slate-500" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M10.75 4.75a.75.75 0 00-1.5 0V10a.75.75 0 00.22.53l3 3a.75.75 0 101.06-1.06l-2.78-2.78V4.75z" />
+                <path d="M3.5 10a6.5 6.5 0 1111.02 4.74.75.75 0 101.06 1.06A8 8 0 102 10a.75.75 0 001.5 0z" />
+              </svg>
+              Go to Admin
+            </a>
+            <a href="#" role="menuitem" class="flex items-center gap-2 px-2 py-2 rounded-md hover:bg-slate-50">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-slate-500" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M3 4.5A1.5 1.5 0 014.5 3h11A1.5 1.5 0 0117 4.5V6H3V4.5z" />
+                <path fill-rule="evenodd" d="M3 7.5h14v8A1.5 1.5 0 0115.5 17h-11A1.5 1.5 0 013 15.5v-8zm3 2.25a.75.75 0 000 1.5h8.25a.75.75 0 000-1.5H6z" clip-rule="evenodd" />
+              </svg>
+              Go to Data Entry
+            </a>
+            <a href="#" role="menuitem" class="flex items-center gap-2 px-2 py-2 rounded-md hover:bg-slate-50">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-slate-500" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10 3a7 7 0 100 14A7 7 0 0010 3zM8.75 7a.75.75 0 000 1.5h2.5a.75.75 0 000-1.5h-2.5zM7 10a.75.75 0 01.75-.75h4.5a.75.75 0 010 1.5h-4.5A.75.75 0 017 10z" clip-rule="evenodd" />
+              </svg>
+              Settings
+            </a>
+            <div class="my-2 h-px bg-slate-100"></div>
+            <button role="menuitem" class="w-full text-left flex items-center gap-2 px-2 py-2 rounded-md hover:bg-red-50 text-red-600">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M3.5 10a.75.75 0 01.75-.75h7.69L9.22 6.53a.75.75 0 111.06-1.06l4.24 4.25a.75.75 0 010 1.06l-4.24 4.25a.75.75 0 11-1.06-1.06l2.72-2.72H4.25A.75.75 0 013.5 10z" clip-rule="evenodd" />
+              </svg>
+              Log out
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="w-full max-w-5xl mx-auto px-4 py-10">
+      <!-- Title -->
+      <section class="mb-8">
+        <h1 class="text-3xl md:text-4xl font-bold text-slate-800 text-center">
+          VGBase <span class="text-teal-700">Version 2.0</span>
+        </h1>
+        <p class="text-center text-slate-600 mt-2">
+          Client lookup &amp; conflict resolution check
+        </p>
+      </section>
+
+      <!-- Form Card -->
+      <section class="bg-white p-8 rounded-xl shadow-sm border border-slate-200">
+        <h2 class="text-lg font-semibold text-slate-800 mb-6">Contact / Case Details</h2>
+
+        <form class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- Contact + inline search -->
+          <div class="grid gap-1 text-sm">
+            <span class="font-medium text-slate-800">Contact</span>
+            <div class="flex gap-2 items-center">
+              <input type="text" class="flex-1 border border-slate-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-teal-600 focus:border-teal-600 placeholder:text-slate-400" placeholder="Jane Doe" />
+              <button type="button" class="rounded-md border border-teal-600 text-teal-700 px-2.5 py-2 hover:bg-teal-50 flex items-center justify-center" title="Search on this data" aria-label="Search on contact">
+                <!-- checkmark icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                  <path fill-rule="evenodd" d="M16.704 5.29a1 1 0 0 1 .006 1.414l-7.25 7.3a1 1 0 0 1-1.424-.01L3.29 9.94a1 1 0 1 1 1.42-1.41l3.02 3.04 6.54-6.58a1 1 0 0 1 1.434 0Z" clip-rule="evenodd" />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Address -->
+          <label class="grid gap-1 text-sm">
+            <span class="font-medium text-slate-800">Address</span>
+            <input type="text" class="border border-slate-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-teal-600 focus:border-teal-600 placeholder:text-slate-400" placeholder="123 Main St, Springfield" />
+          </label>
+
+          <!-- Phone + inline search -->
+          <div class="grid gap-1 text-sm">
+            <span class="font-medium text-slate-800">Phone Number</span>
+            <div class="flex gap-2 items-center">
+              <input type="tel" class="flex-1 border border-slate-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-teal-600 focus:border-teal-600 placeholder:text-slate-400" placeholder="(555) 123-4567" />
+              <button type="button" class="rounded-md border border-teal-600 text-teal-700 px-2.5 py-2 hover:bg-teal-50 flex items-center justify-center" title="Search on this data" aria-label="Search on phone">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                  <path fill-rule="evenodd" d="M16.704 5.29a1 1 0 0 1 .006 1.414l-7.25 7.3a1 1 0 0 1-1.424-.01L3.29 9.94a1 1 0 1 1 1.42-1.41l3.02 3.04 6.54-6.58a1 1 0 0 1 1.434 0Z" clip-rule="evenodd" />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Lawyer Case Number -->
+          <label class="grid gap-1 text-sm">
+            <span class="font-medium text-slate-800">Lawyer Case Number</span>
+            <input type="text" class="border border-slate-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-teal-600 focus:border-teal-600 placeholder:text-slate-400" placeholder="LCN-00123" />
+          </label>
+
+          <!-- Email -->
+          <label class="grid gap-1 text-sm">
+            <span class="font-medium text-slate-800">Email</span>
+            <input type="email" class="border border-slate-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-teal-600 focus:border-teal-600 placeholder:text-slate-400" placeholder="jane.doe@example.com" />
+          </label>
+
+          <!-- DOL Range (single row under Phone) + inline search -->
+          <div class="grid gap-1 text-sm">
+            <span class="font-medium text-slate-800">DOL (Date Range)</span>
+            <div class="flex items-center gap-2">
+              <input type="date" class="w-40 border border-slate-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-teal-600 focus:border-teal-600" aria-label="DOL From" />
+              <span class="text-slate-500">to</span>
+              <input type="date" class="w-40 border border-slate-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-teal-600 focus:border-teal-600" aria-label="DOL To" />
+              <button type="button" class="rounded-md border border-teal-600 text-teal-700 px-2.5 py-2 hover:bg-teal-50 flex items-center justify-center" title="Search on this date range" aria-label="Search on DOL range">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                  <path fill-rule="evenodd" d="M16.704 5.29a1 1 0 0 1 .006 1.414l-7.25 7.3a1 1 0 0 1-1.424-.01L3.29 9.94a1 1 0 1 1 1.42-1.41l3.02 3.04 6.54-6.58a1 1 0 0 1 1.434 0Z" clip-rule="evenodd" />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Incident Type -->
+          <label class="grid gap-1 text-sm">
+            <span class="font-medium text-slate-800">Incident Type</span>
+            <select class="border border-slate-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-teal-600 focus:border-teal-600">
+              <option value="">Select…</option>
+              <option>Theft</option>
+              <option>Accident</option>
+              <option>Civil</option>
+              <option>Criminal</option>
+              <option>Other</option>
+            </select>
+          </label>
+
+          <!-- Job Folder -->
+          <label class="grid gap-1 text-sm">
+            <span class="font-medium text-slate-800">Job Folder</span>
+            <input type="text" class="border border-slate-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-teal-600 focus:border-teal-600 placeholder:text-slate-400" placeholder="Folder-001" />
+          </label>
+
+          <!-- Insurance Company -->
+          <label class="grid gap-1 text-sm">
+            <span class="font-medium text-slate-800">Insurance Company</span>
+            <input type="text" class="border border-slate-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-teal-600 focus:border-teal-600 placeholder:text-slate-400" placeholder="Acme Mutual" />
+          </label>
+
+          <!-- Insurance Company Claim Number -->
+          <label class="grid gap-1 text-sm">
+            <span class="font-medium text-slate-800">Insurance Company Claim Number</span>
+            <input type="text" class="border border-slate-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-teal-600 focus:border-teal-600 placeholder:text-slate-400" placeholder="CLM-123456" />
+          </label>
+        </form>
+      </section>
+    </main>
+
+    <script>
+      // Simple dropdown toggle for the profile menu (placeholder behavior)
+      (function () {
+        const btn = document.getElementById('profileBtn');
+        const menu = document.getElementById('profileMenu');
+
+        function closeMenu() {
+          if (!menu.classList.contains('hidden')) {
+            menu.classList.add('hidden');
+            btn.setAttribute('aria-expanded', 'false');
+          }
+        }
+
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const open = menu.classList.contains('hidden');
+          document.querySelectorAll('#profileMenu').forEach(closeMenu);
+          if (open) {
+            menu.classList.remove('hidden');
+            btn.setAttribute('aria-expanded', 'true');
+          } else {
+            closeMenu();
+          }
+        });
+
+        document.addEventListener('click', (e) => {
+          if (!menu.contains(e.target) && e.target !== btn) {
+            closeMenu();
+          }
+        });
+
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape') closeMenu();
+        });
+      })();
+    </script>
+  </body>
+</html>
 
