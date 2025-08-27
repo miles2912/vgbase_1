@@ -22,33 +22,25 @@
         <p class="text-slate-600 mt-2">Please sign in to continue</p>
       </section>
 
-      <!-- JS-free redirect: form posts to /admin.html -->
+      <!-- Inert dummy fields -->
       <section class="mx-auto max-w-md bg-white p-8 rounded-xl shadow-sm border border-slate-200">
         <form action="/admin.html" method="get" class="grid gap-5">
           <label class="grid gap-1 text-sm">
             <span class="font-medium text-slate-800">Email</span>
-            <input name="email" type="email" class="border border-slate-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-teal-600 focus:border-teal-600 placeholder:text-slate-400" placeholder="you@example.com" required />
+            <input type="text" name="dummy-email" autocomplete="off"
+              class="border border-slate-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-teal-600 focus:border-teal-600 placeholder:text-slate-400"
+              placeholder="you@example.com" />
           </label>
 
           <label class="grid gap-1 text-sm">
             <span class="font-medium text-slate-800">Password</span>
-            <input name="password" type="password" class="border border-slate-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-teal-600 focus:border-teal-600 placeholder:text-slate-400" placeholder="••••••••" required />
+            <input type="text" name="dummy-pass" autocomplete="off"
+              class="border border-slate-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-teal-600 focus:border-teal-600 placeholder:text-slate-400"
+              placeholder="••••••••" />
           </label>
-
-          <div class="flex items-center justify-between text-sm">
-            <label class="inline-flex items-center gap-2">
-              <input type="checkbox" class="w-4 h-4 rounded border-slate-300 text-teal-700 focus:ring-teal-600" />
-              <span class="text-slate-700">Remember me</span>
-            </label>
-            <a href="#" class="text-teal-700 hover:underline">Forgot password?</a>
-          </div>
 
           <button type="submit" class="rounded-md bg-teal-600 text-white px-4 py-2.5 hover:bg-teal-700">Sign In</button>
         </form>
-
-        <noscript>
-          <p class="mt-6 text-xs text-slate-500">JavaScript is disabled. You can still <a href="/admin.html" class="text-teal-700 hover:underline">continue to Admin</a>.</p>
-        </noscript>
       </section>
     </main>
   </body>
