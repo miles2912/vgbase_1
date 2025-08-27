@@ -63,4 +63,47 @@
       <div class="grid gap-1 text-sm">
         <span class="font-medium text-slate-800">DOL (Date Range)</span>
         <div class="flex items-center gap-2">
-          <input type="date" class="w-40 border border-slate-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-teal-600 focus:borde
+          <input type="date" class="w-40 border border-slate-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-teal-600 focus:border-teal-600" aria-label="DOL From" />
+          <span class="text-slate-500">to</span>
+          <input type="date" class="w-40 border border-slate-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-teal-600 focus:border-teal-600" aria-label="DOL To" />
+          <button type="button" class="rounded-md border border-teal-600 text-teal-700 px-2.5 py-2 hover:bg-teal-50 flex items-center justify-center" title="Search on this date range" aria-label="Search on DOL range">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+              <path fill-rule="evenodd" d="M16.704 5.29a1 1 0 0 1 .006 1.414l-7.25 7.3a1 1 0 0 1-1.424-.01L3.29 9.94a1 1 0 1 1 1.42-1.41l3.02 3.04 6.54-6.58a1 1 0 0 1 1.434 0Z" clip-rule="evenodd" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Incident Type -->
+      <label class="grid gap-1 text-sm">
+        <span class="font-medium text-slate-800">Incident Type</span>
+        <select class="border border-slate-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-teal-600 focus:border-teal-600">
+          <option value="">Select…</option>
+          <option>Theft</option>
+          <option>Accident</option>
+          <option>Civil</option>
+          <option>Criminal</option>
+          <option>Other</option>
+        </select>
+      </label>
+
+      <!-- Job Folder -->
+      <label class="grid gap-1 text-sm">
+        <span class="font-medium text-slate-800">Job Folder</span>
+        <input type="text" class="border border-slate-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-teal-600 focus:border-teal-600 placeholder:text-slate-400" placeholder="Folder-001" />
+      </label>
+
+      <!-- Insurance Company -->
+      <label class="grid gap-1 text-sm">
+        <span class="font-medium text-slate-800">Insurance Company</span>
+        <input type="text" class="border border-slate-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-teal-600 focus:border-teal-600 placeholder:text-slate-400" placeholder="Acme Mutual" />
+      </label>
+
+      <!-- Insurance Company Claim Number -->
+      <label class="grid gap-1 text-sm">
+        <span class="font-medium text-slate-800">Insurance Company Claim Number</span>
+        <input type="text" class="border border-slate-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-teal-600 focus:border-teal-600 placeholder:text-slate-400" placeholder="CLM-123456" />
+      </label>
+    </form>
+  </section>
+</main>
