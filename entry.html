@@ -7,36 +7,27 @@
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body class="bg-slate-50 text-slate-900 antialiased min-h-screen flex flex-col">
-    <!-- Top bar -->
+    <!-- Header with avatar and dropdown -->
     <header class="border-b border-slate-200 bg-white/70 backdrop-blur">
       <div class="mx-auto max-w-5xl px-4 h-14 flex items-center justify-between">
         <div class="text-sm font-semibold tracking-tight text-slate-800">
           VGBase <span class="text-teal-700">2.0</span>
         </div>
-
-        <!-- Profile / actions -->
         <div class="relative text-sm text-slate-700">
           <button id="profileBtn" class="flex items-center gap-2 cursor-pointer select-none" aria-haspopup="menu" aria-expanded="false">
             <div class="w-9 h-9 rounded-full bg-teal-700 text-white flex items-center justify-center font-bold">D</div>
-            <span class="hidden sm:inline text-xs text-slate-600">Don</span>
+            <span class="hidden sm:inline text-xs text-slate-600">User</span>
             <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-slate-500" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
               <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.172l3.71-3.94a.75.75 0 011.08 1.04l-4.24 4.5a.75.75 0 01-1.08 0l-4.24-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
             </svg>
           </button>
-
-          <!-- Dropdown menu -->
           <div id="profileMenu" class="absolute right-0 mt-2 w-56 bg-white border border-slate-200 rounded-md shadow-lg p-2 hidden" role="menu" aria-labelledby="profileBtn">
-            <div class="flex items-center justify-between px-2 py-1.5">
-              <span class="text-xs font-medium text-slate-600">Signed in as</span>
-              <span class="inline-flex items-center gap-1 rounded-full bg-teal-50 text-teal-700 border border-teal-200 px-2 py-0.5 text-xs">
-                <span class="w-1.5 h-1.5 rounded-full bg-teal-500"></span> Entry
-              </span>
-            </div>
+            <a href="/user.html" role="menuitem" class="block px-2 py-2 rounded-md hover:bg-slate-50">Go to Lookup (User)</a>
+            <a href="/admin.html" role="menuitem" class="block px-2 py-2 rounded-md hover:bg-slate-50">Go to Admin</a>
+            <a href="/entry.html" role="menuitem" class="block px-2 py-2 rounded-md hover:bg-slate-50">Go to Data Entry</a>
+            <a href="/reports.html" role="menuitem" class="block px-2 py-2 rounded-md hover:bg-slate-50">Go to Reports</a>
             <div class="my-2 h-px bg-slate-100"></div>
-            <a href="/user.html" role="menuitem" class="flex items-center gap-2 px-2 py-2 rounded-md hover:bg-slate-50">Go to Lookup (User)</a>
-            <a href="/admin.html" role="menuitem" class="flex items-center gap-2 px-2 py-2 rounded-md hover:bg-slate-50">Go to Admin</a>
-            <div class="my-2 h-px bg-slate-100"></div>
-            <a href="/index.html" role="menuitem" class="flex items-center gap-2 px-2 py-2 rounded-md hover:bg-slate-50 text-red-600 hover:text-red-700">Sign out to Login</a>
+            <a href="/index.html" role="menuitem" class="block px-2 py-2 rounded-md hover:bg-slate-50 text-red-600 hover:text-red-700">Sign out to Login</a>
           </div>
         </div>
       </div>
@@ -45,88 +36,173 @@
     <main class="w-full max-w-5xl mx-auto px-4 py-10 flex-1">
       <section class="mb-8">
         <h1 class="text-3xl md:text-4xl font-bold text-slate-800 text-center">Data Entry</h1>
-        <p class="text-center text-slate-600 mt-2">Enter case details. (DOL is a single date on this page.)</p>
+        <p class="text-center text-slate-600 mt-2">Create a new case (DOL is a single date on this page).</p>
       </section>
 
-      <!-- Data Entry Form -->
-      <section class="bg-white p-8 rounded-xl shadow-sm border border-slate-200">
-        <h2 class="text-lg font-semibold text-slate-800 mb-6">Case Information</h2>
-
+      <!-- Case Identity -->
+      <section class="bg-white p-8 rounded-xl shadow-sm border border-slate-200 mb-6">
+        <h2 class="text-lg font-semibold text-slate-800 mb-6">Case Identity</h2>
         <form class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <label class="grid gap-1 text-sm">
-            <span class="font-medium text-slate-800">Contact</span>
-            <input type="text" class="border border-slate-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-teal-600 focus:border-teal-600 placeholder:text-slate-400" placeholder="Jane Doe" />
-          </label>
-
-          <label class="grid gap-1 text-sm">
-            <span class="font-medium text-slate-800">Address</span>
-            <input type="text" class="border border-slate-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-teal-600 focus:border-teal-600 placeholder:text-slate-400" placeholder="123 Main St, Springfield" />
-          </label>
-
-          <label class="grid gap-1 text-sm">
-            <span class="font-medium text-slate-800">Phone Number</span>
-            <input type="tel" class="border border-slate-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-teal-600 focus-border-teal-600 placeholder:text-slate-400" placeholder="(555) 123-4567" />
-          </label>
-
-          <label class="grid gap-1 text-sm">
             <span class="font-medium text-slate-800">Case Name</span>
-            <input type="text" class="border border-slate-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-teal-600 focus-border-teal-600 placeholder:text-slate-400" placeholder="Accident on 5th Ave" />
+            <input type="text" class="border border-slate-300 rounded-md px-3 py-2" placeholder="Case name" />
           </label>
-
           <label class="grid gap-1 text-sm">
-            <span class="font-medium text-slate-800">Engineer</span>
-            <input type="text" class="border border-slate-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-teal-600 focus-border-teal-600 placeholder:text-slate-400" placeholder="Engineer Name" />
-          </label>
-
-          <label class="grid gap-1 text-sm">
-            <span class="font-medium text-slate-800">Email</span>
-            <input type="email" class="border border-slate-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-teal-600 focus-border-teal-600 placeholder:text-slate-400" placeholder="jane.doe@example.com" />
-          </label>
-
-          <label class="grid gap-1 text-sm">
-            <span class="font-medium text-slate-800">DOL (Date)</span>
-            <input type="date" class="border border-slate-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-teal-600 focus-border-teal-600" />
-          </label>
-
-          <label class="grid gap-1 text-sm">
-            <span class="font-medium text-slate-800">Incident Type</span>
-            <select class="border border-slate-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-teal-600 focus-border-teal-600">
+            <span class="font-medium text-slate-800">Case Type</span>
+            <select class="border border-slate-300 rounded-md px-3 py-2">
               <option value="">Select…</option>
-              <option>Theft</option>
-              <option>Accident</option>
-              <option>Civil</option>
-              <option>Criminal</option>
+              <option>Type A</option>
+              <option>Type B</option>
               <option>Other</option>
             </select>
           </label>
-
-          <!-- Job Folder and Insurance Company side by side -->
           <label class="grid gap-1 text-sm">
-            <span class="font-medium text-slate-800">Job Folder</span>
-            <input type="text" class="border border-slate-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-teal-600 focus-border-teal-600 placeholder:text-slate-400" placeholder="Folder-001" />
+            <span class="font-medium text-slate-800">Status</span>
+            <select class="border border-slate-300 rounded-md px-3 py-2">
+              <option value="">Select…</option>
+              <option>Open</option>
+              <option>In Progress</option>
+              <option>Closed</option>
+            </select>
           </label>
-
           <label class="grid gap-1 text-sm">
-            <span class="font-medium text-slate-800">Insurance Company</span>
-            <input type="text" class="border border-slate-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-teal-600 focus-border-teal-600 placeholder:text-slate-400" placeholder="Acme Mutual" />
+            <span class="font-medium text-slate-800">Engineer</span>
+            <input type="text" class="border border-slate-300 rounded-md px-3 py-2" placeholder="Engineer" />
           </label>
-
-          <!-- Insurance Claim Number same width as above fields -->
           <label class="grid gap-1 text-sm">
-            <span class="font-medium text-slate-800">Insurance Company Claim Number</span>
-            <input type="text" class="border border-slate-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-teal-600 focus-border-teal-600 placeholder:text-slate-400" placeholder="CLM-123456" />
-            <div class="flex justify-center mt-4">
-              <button type="button" class="rounded-lg bg-teal-600 text-white px-6 py-3 text-base font-semibold hover:bg-teal-700">Create New Case</button>
-            </div>
+            <span class="font-medium text-slate-800">Client File No.</span>
+            <input type="text" class="border border-slate-300 rounded-md px-3 py-2" placeholder="CF-0001" />
+          </label>
+          <label class="grid gap-1 text-sm">
+            <span class="font-medium text-slate-800">Lab No.</span>
+            <input type="text" class="border border-slate-300 rounded-md px-3 py-2" placeholder="LAB-0001" />
           </label>
         </form>
       </section>
 
-      <!-- Xero data textarea smaller (~65px tall) + right-side send button -->
+      <!-- Dates -->
+      <section class="bg-white p-8 rounded-xl shadow-sm border border-slate-200 mb-6">
+        <h2 class="text-lg font-semibold text-slate-800 mb-6">Dates</h2>
+        <form class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <label class="grid gap-1 text-sm">
+            <span class="font-medium text-slate-800">Date of Loss (DOL)</span>
+            <input type="date" class="border border-slate-300 rounded-md px-3 py-2" />
+          </label>
+          <label class="grid gap-1 text-sm">
+            <span class="font-medium text-slate-800">Case Start Date</span>
+            <input type="date" class="border border-slate-300 rounded-md px-3 py-2" />
+          </label>
+          <label class="grid gap-1 text-sm">
+            <span class="font-medium text-slate-800">End Date</span>
+            <input type="date" class="border border-slate-300 rounded-md px-3 py-2" />
+          </label>
+        </form>
+      </section>
+
+      <!-- Contacts & Parties -->
+      <section class="bg-white p-8 rounded-xl shadow-sm border border-slate-200 mb-6">
+        <h2 class="text-lg font-semibold text-slate-800 mb-6">Contacts & Parties</h2>
+        <form class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <label class="grid gap-1 text-sm">
+            <span class="font-medium text-slate-800">Primary Contact</span>
+            <input type="text" class="border border-slate-300 rounded-md px-3 py-2" placeholder="Full name" />
+          </label>
+          <label class="grid gap-1 text-sm">
+            <span class="font-medium text-slate-800">Phone Number</span>
+            <input type="tel" class="border border-slate-300 rounded-md px-3 py-2" placeholder="(555) 000-0000" />
+          </label>
+          <label class="grid gap-1 text-sm">
+            <span class="font-medium text-slate-800">Email</span>
+            <input type="email" class="border border-slate-300 rounded-md px-3 py-2" placeholder="name@example.com" />
+          </label>
+          <div class="flex items-center gap-2 text-sm">
+            <input id="alt-billing" type="checkbox" class="w-4 h-4 rounded border-slate-300 text-teal-700" />
+            <label for="alt-billing" class="font-medium text-slate-800">Alternate Billing Address?</label>
+          </div>
+
+          <fieldset class="grid gap-2 text-sm">
+            <legend class="font-medium text-slate-800">Party Role (Set 1)</legend>
+            <div class="flex items-center gap-4">
+              <label class="inline-flex items-center gap-1"><input type="radio" name="party1" class="w-4 h-4" /> <span>Defendant</span></label>
+              <label class="inline-flex items-center gap-1"><input type="radio" name="party1" class="w-4 h-4" /> <span>Plaintiff</span></label>
+              <label class="inline-flex items-center gap-1"><input type="radio" name="party1" class="w-4 h-4" /> <span>Other</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="grid gap-2 text-sm">
+            <legend class="font-medium text-slate-800">Party Role (Set 2)</legend>
+            <div class="flex items-center gap-4">
+              <label class="inline-flex items-center gap-1"><input type="radio" name="party2" class="w-4 h-4" /> <span>Other</span></label>
+              <label class="inline-flex items-center gap-1"><input type="radio" name="party2" class="w-4 h-4" /> <span>Claimant</span></label>
+              <label class="inline-flex items-center gap-1"><input type="radio" name="party2" class="w-4 h-4" /> <span>Insured</span></label>
+            </div>
+          </fieldset>
+        </form>
+      </section>
+
+      <!-- Insurance -->
+      <section class="bg-white p-8 rounded-xl shadow-sm border border-slate-200 mb-6">
+        <h2 class="text-lg font-semibold text-slate-800 mb-6">Insurance</h2>
+        <form class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <label class="grid gap-1 text-sm">
+            <span class="font-medium text-slate-800">Insurance Co.</span>
+            <input type="text" class="border border-slate-300 rounded-md px-3 py-2" placeholder="Insurance company" />
+          </label>
+          <label class="grid gap-1 text-sm">
+            <span class="font-medium text-slate-800">Policy No.</span>
+            <input type="text" class="border border-slate-300 rounded-md px-3 py-2" placeholder="Policy number" />
+          </label>
+          <label class="grid gap-1 text-sm">
+            <span class="font-medium text-slate-800">Claim No.</span>
+            <input type="text" class="border border-slate-300 rounded-md px-3 py-2" placeholder="Claim number" />
+          </label>
+          <div class="flex items-end">
+            <button type="button" class="rounded-lg bg-teal-600 text-white px-6 py-3 text-base font-semibold hover:bg-teal-700 mx-auto">Create New Case</button>
+          </div>
+        </form>
+      </section>
+
+      <!-- File Organization -->
+      <section class="bg-white p-8 rounded-xl shadow-sm border border-slate-200 mb-6">
+        <h2 class="text-lg font-semibold text-slate-800 mb-6">File Organization</h2>
+        <form class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <label class="grid gap-1 text-sm">
+            <span class="font-medium text-slate-800">Job Folder</span>
+            <input type="text" class="border border-slate-300 rounded-md px-3 py-2" placeholder="Job folder" />
+          </label>
+        </form>
+      </section>
+
+      <!-- Timeline -->
+      <section class="bg-white p-8 rounded-xl shadow-sm border border-slate-200 mb-6">
+        <h2 class="text-lg font-semibold text-slate-800 mb-4">Timeline</h2>
+        <div class="overflow-x-auto">
+          <table class="min-w-full border border-slate-200 rounded-lg overflow-hidden text-sm">
+            <thead class="bg-slate-50 text-left text-slate-600">
+              <tr>
+                <th class="px-3 py-2 border-b border-slate-200">Date/Time</th>
+                <th class="px-3 py-2 border-b border-slate-200">Action</th>
+                <th class="px-3 py-2 border-b border-slate-200">Doc ID No</th>
+                <th class="px-3 py-2 border-b border-slate-200">Notes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="odd:bg-white even:bg-slate-50">
+                <td class="px-3 py-2 border-b border-slate-100">—</td>
+                <td class="px-3 py-2 border-b border-slate-100">—</td>
+                <td class="px-3 py-2 border-b border-slate-100">—</td>
+                <td class="px-3 py-2 border-b border-slate-100">—</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Xero -->
       <section class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-6">
         <div class="md:col-span-2 bg-white p-6 rounded-xl shadow-sm border border-slate-200">
           <h3 class="text-base font-semibold text-slate-800 mb-2">Xero data to send</h3>
-          <textarea class="w-full min-h-[65px] border border-slate-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-teal-600 focus-border-teal-600 placeholder:text-slate-400" placeholder="{ 'example': 'payload' }"></textarea>
+          <textarea class="w-full min-h-[65px] border border-slate-300 rounded-md px-3 py-2" placeholder="{ 'example': 'payload' }"></textarea>
           <p class="mt-2 text-xs text-slate-500">Paste or draft the JSON/payload to send to Xero here.</p>
         </div>
         <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200 flex flex-col items-stretch justify-between">
@@ -137,9 +213,7 @@
     </main>
 
     <footer class="border-t border-slate-200 bg-white/70">
-      <div class="mx-auto max-w-5xl px-4 py-4 text-xs text-slate-500">
-        © 2025 Brignola Enterprises Inc. All rights reserved.
-      </div>
+      <div class="mx-auto max-w-5xl px-4 py-4 text-xs text-slate-500">© 2025 Brignola Enterprises Inc. All rights reserved.</div>
     </footer>
 
     <script>
