@@ -65,32 +65,32 @@
 
           <label class="grid gap-1 text-sm">
             <span class="font-medium text-slate-800">Phone Number</span>
-            <input type="tel" class="border border-slate-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-teal-600 focus:border-teal-600 placeholder:text-slate-400" placeholder="(555) 123-4567" />
+            <input type="tel" class="border border-slate-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-teal-600 focus-border-teal-600 placeholder:text-slate-400" placeholder="(555) 123-4567" />
           </label>
 
           <label class="grid gap-1 text-sm">
             <span class="font-medium text-slate-800">Case Name</span>
-            <input type="text" class="border border-slate-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-teal-600 focus:border-teal-600 placeholder:text-slate-400" placeholder="Accident on 5th Ave" />
+            <input type="text" class="border border-slate-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-teal-600 focus-border-teal-600 placeholder:text-slate-400" placeholder="Accident on 5th Ave" />
           </label>
 
           <label class="grid gap-1 text-sm">
             <span class="font-medium text-slate-800">Engineer</span>
-            <input type="text" class="border border-slate-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-teal-600 focus:border-teal-600 placeholder:text-slate-400" placeholder="Engineer Name" />
+            <input type="text" class="border border-slate-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-teal-600 focus-border-teal-600 placeholder:text-slate-400" placeholder="Engineer Name" />
           </label>
 
           <label class="grid gap-1 text-sm">
             <span class="font-medium text-slate-800">Email</span>
-            <input type="email" class="border border-slate-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-teal-600 focus:border-teal-600 placeholder:text-slate-400" placeholder="jane.doe@example.com" />
+            <input type="email" class="border border-slate-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-teal-600 focus-border-teal-600 placeholder:text-slate-400" placeholder="jane.doe@example.com" />
           </label>
 
           <label class="grid gap-1 text-sm">
             <span class="font-medium text-slate-800">DOL (Date)</span>
-            <input type="date" class="border border-slate-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-teal-600 focus:border-teal-600" />
+            <input type="date" class="border border-slate-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-teal-600 focus-border-teal-600" />
           </label>
 
           <label class="grid gap-1 text-sm">
             <span class="font-medium text-slate-800">Incident Type</span>
-            <select class="border border-slate-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-teal-600 focus:border-teal-600">
+            <select class="border border-slate-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-teal-600 focus-border-teal-600">
               <option value="">Select…</option>
               <option>Theft</option>
               <option>Accident</option>
@@ -100,19 +100,24 @@
             </select>
           </label>
 
+          <!-- Job Folder and Insurance Company side by side -->
           <label class="grid gap-1 text-sm">
             <span class="font-medium text-slate-800">Job Folder</span>
-            <input type="text" class="border border-slate-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-teal-600 focus:border-teal-600 placeholder:text-slate-400" placeholder="Folder-001" />
+            <input type="text" class="border border-slate-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-teal-600 focus-border-teal-600 placeholder:text-slate-400" placeholder="Folder-001" />
           </label>
 
           <label class="grid gap-1 text-sm">
             <span class="font-medium text-slate-800">Insurance Company</span>
-            <input type="text" class="border border-slate-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-teal-600 focus:border-teal-600 placeholder:text-slate-400" placeholder="Acme Mutual" />
+            <input type="text" class="border border-slate-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-teal-600 focus-border-teal-600 placeholder:text-slate-400" placeholder="Acme Mutual" />
           </label>
 
+          <!-- Insurance Claim Number same width as above fields -->
           <label class="grid gap-1 text-sm">
             <span class="font-medium text-slate-800">Insurance Company Claim Number</span>
             <input type="text" class="border border-slate-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-teal-600 focus-border-teal-600 placeholder:text-slate-400" placeholder="CLM-123456" />
+            <div class="flex justify-center mt-4">
+              <button type="button" class="rounded-lg bg-teal-600 text-white px-6 py-3 text-base font-semibold hover:bg-teal-700">Create New Case</button>
+            </div>
           </label>
         </form>
       </section>
@@ -121,7 +126,7 @@
       <section class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-6">
         <div class="md:col-span-2 bg-white p-6 rounded-xl shadow-sm border border-slate-200">
           <h3 class="text-base font-semibold text-slate-800 mb-2">Xero data to send</h3>
-          <textarea class="w-full min-h-[65px] border border-slate-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-teal-600 focus:border-teal-600 placeholder:text-slate-400" placeholder="{ 'example': 'payload' }"></textarea>
+          <textarea class="w-full min-h-[65px] border border-slate-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-teal-600 focus-border-teal-600 placeholder:text-slate-400" placeholder="{ 'example': 'payload' }"></textarea>
           <p class="mt-2 text-xs text-slate-500">Paste or draft the JSON/payload to send to Xero here.</p>
         </div>
         <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200 flex flex-col items-stretch justify-between">
@@ -143,8 +148,8 @@
         const menu = document.getElementById('profileMenu');
         function closeMenu() { if (!menu.classList.contains('hidden')) { menu.classList.add('hidden'); btn.setAttribute('aria-expanded', 'false'); } }
         btn.addEventListener('click', (e) => { e.stopPropagation(); const open = menu.classList.contains('hidden'); if (open) { menu.classList.remove('hidden'); btn.setAttribute('aria-expanded', 'true'); } else { closeMenu(); } });
-        document.addEventListener('click', (e) => { if (!menu.contains(e.target) && e.target !== btn) { closeMenu(); } });
-        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu(); });
+        document.addEventListener('click', (e) => { if (!menu.contains(e.target) && e.target != btn) { closeMenu(); } });
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu(); } });
       })();
     </script>
   </body>
