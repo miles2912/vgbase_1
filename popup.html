@@ -1,1 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>VGBase – Checkmark Inquiry</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      html, body { background: #f8fafc; }
+      @media (min-width: 640px) { body { width: 520px; } }
+    </style>
+  </head>
+  <body class="text-slate-900 antialiased">
+    <main class="p-4 sm:p-5">
+      <header class="mb-3">
+        <h1 class="text-lg font-semibold text-slate-800">Checkmark Inquiry</h1>
+        <p class="text-xs text-slate-500">Read-only details. Close the window to exit.</p>
+      </header>
+
+      <section class="bg-white border border-slate-200 rounded-xl shadow-sm p-4">
+        <form class="grid grid-cols-1 gap-3">
+          <!-- Date range (readonly) -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <label class="grid gap-1 text-sm">
+              <span class="font-medium text-slate-800">Start Date</span>
+              <input id="start" type="date" class="border border-slate-300 rounded-md px-3 py-2 bg-slate-50 text-slate-500" readonly disabled />
+            </label>
+            <label class="grid gap-1 text-sm">
+              <span class="font-medium text-slate-800">End Date</span>
+              <input id="end" type="date" class="border border-slate-300 rounded-md px-3 py-2 bg-slate-50 text-slate-500" readonly disabled />
+            </label>
+          </div>
+
+          <div class="h-px bg-slate-100 my-1"></div>
+
+          <!-- Auto-populated case fields (readonly) -->
+          <label class="grid gap-1 text-sm">
+            <span class="font-medium text-slate-800">Lab No.</span>
+            <input id="lab" type="text" class="border border-slate-300 rounded-md px-3 py-2 bg-slate-50 text-slate-500" readonly />
+          </label>
+
+          <label class="grid gap-1 text-sm">
+            <span class="font-medium text-slate-800">Date of Loss (DOL)</span>
+            <input id="dol" type="date" class="border border-slate-300 rounded-md px-3 py-2 bg-slate-50 text-slate-500" readonly />
+          </label>
+
+          <label class="grid gap-1 text-sm">
+            <span class="font-medium text-slate-800">Case Type</span>
+            <input id="caseType" type="text" class="border border-slate-300 rounded-md px-3 py-2 bg-slate-50 text-slate-500" readonly />
+          </label>
+
+          <label class="grid gap-1 text-sm">
+            <span class="font-medium text-slate-800">Case Name</span>
+            <input id="caseName" type="text" class="border border-slate-300 rounded-md px-3 py-2 bg-slate-50 text-slate-500" readonly />
+          </label>
+
+          <label class="grid gap-1 text-sm">
+            <span class="font-medium text-slate-800">Engineer</span>
+            <input id="engineer" type="text" class="border border-slate-300 rounded-md px-3 py-2 bg-slate-50 text-slate-500" readonly />
+          </label>
+        </form>
+      </section>
+
+      <p class="mt-3 text-[11px] text-slate-400">© 2025 Brignola Enterprises Inc.</p>
+    </main>
+
+    <script>
+      // Prefill values from URL parameters (read-only view)
+      (function () {
+        const $ = (id) => document.getElementById(id);
+        const params = new URLSearchParams(window.location.search);
+        const map = { start: "start", end: "end", lab: "lab", dol: "dol", caseType: "caseType", caseName: "caseName", engineer: "engineer" };
+        Object.entries(map).forEach(([k, v]) => { if (params.has(k)) { $(v).value = params.get(k); } });
+      })();
+    </script>
+  </body>
+</html>
 
